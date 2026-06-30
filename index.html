@@ -1,19 +1,75 @@
-<body style="margin:0 auto;width:16em;white-space:pre-wrap;font-size:1.2em;">
-    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    * {
+        all: unset;
+        display: block;
+        text-align: center;
+        margin: auto;
 
+    }
 
+    head,
+    script {
+        display: none;
+    }
 
+    body,
+    h1,
+    img {
+        margin: 8em 0;
+    }
 
-<div style="text-align:center;">
-GAZE2
+    img {
+        max-width: 100%;
+    }
 
-</div>
+    a,
+    .product {
+        cursor: pointer;
+    }
 
+    .product {
+        padding: 1em;
+        width: fit-content;
+        border-radius: 1em;
+        background-color: rgba(9, 9, 9, .1);
+        padding-bottom: 8em;
+    }
 
+    .buy {
+        padding: 1em;
+        width: fit-content;
+        border-radius: 1em;
+        background-color: rgba(9, 9, 9, .1);
+    }
 
+    p {
+        margin-bottom: 1em;
+    }
+</style>
 
-<a href="cy2.html">COMICS YOUTH #2
+<body>
+    <h1>GAZE2</h1>
 
-$5</a>
+    <div class="product" data-url="cy2.html">
+        <img src="cy2.jpg">
+        <p>COMICS YOUTH #2</p>
+        <p>$5</p>
+        <a class="buy" href="https://buy.stripe.com/3cI7sLdOq4XT0CG6ssbV600">BUY</a>
+    </div>
 
-BUY</body>
+    <script>
+        const product = document.querySelector('.product');
+
+        product.addEventListener('click', (e) => {
+            // If the user clicked the inner anchor, let the browser handle it normally
+            if (e.target.tagName === 'A') {
+                return;
+            }
+
+            // Otherwise, navigate to the product's primary URL
+            window.location.href = product.dataset.url;
+        });
+    </script>
+
+</body>
